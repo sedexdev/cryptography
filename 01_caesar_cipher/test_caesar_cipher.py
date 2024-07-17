@@ -7,7 +7,7 @@ class TestCaesarCipher:
     """
     Test class for Caesar Cipher functions
     """
-    
+
     def test_encrypt_empty(self) -> None:
         """
         Test empty string encryption
