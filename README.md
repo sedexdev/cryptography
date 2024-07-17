@@ -1,6 +1,6 @@
 # Cryptography in Python
 
-[Tests](https://github.com/sedexdev/cryptography/actions/workflows/tests.yml/badge.svg)
+![Tests](https://github.com/sedexdev/cryptography/actions/workflows/tests.yml/badge.svg)
 
 # Topics
 
