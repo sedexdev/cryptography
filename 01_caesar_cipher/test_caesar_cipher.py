@@ -1,15 +1,29 @@
+"""Caesar Cipher test cases"""
+
 from caesar_cipher import decrypt, encrypt
 
 
 class TestCaesarCipher:
     def test_encrypt_empty(self) -> None:
-        assert encrypt('') == ''
+        """
+        Test empty string encryption
+        """
+        assert encrypt("") == ""
 
     def test_encrypt(self) -> None:
-        assert encrypt('This is a test message') == 'WKLVCLVCDCWHVWCPHVVDJH'
+        """
+        Test message encrypts correctly
+        """
+        assert encrypt("This is a test message") == "WKLVCLVCDCWHVWCPHVVDJH"
 
     def test_decrypt_empty(self) -> None:
-        assert decrypt('') == ''
+        """
+        Test empty string decryption
+        """
+        assert decrypt("") == ""
 
     def test_decrypt(self) -> None:
-        assert decrypt('WKLVCLVCDCWHVWCPHVVDJH') == 'THIS IS A TEST MESSAGE'
+        """
+        Test message decrypts correctly
+        """
+        assert decrypt("WKLVCLVCDCWHVWCPHVVDJH") == "THIS IS A TEST MESSAGE"

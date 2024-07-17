@@ -1,5 +1,7 @@
+"""Caesar Cipher implementation"""
+
 # constants
-ALPHABET = ' ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+ALPHABET = " ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 KEY = 3
 MESSAGE = "This is a test message"
 
@@ -12,16 +14,16 @@ def encrypt(p_text) -> str:
     Args:
         p_text: str - plain text to encrypt
     Returns:
-        str: encrypted cipher text 
+        str: encrypted cipher text
     """
-    cipher_text = ''
+    cipher_text = ""
     p_text = p_text.upper()
 
     for c in p_text:
         index = ALPHABET.find(c)
         index = (index + KEY) % len(ALPHABET)
         cipher_text += ALPHABET[index]
-    
+
     return cipher_text
 
 
@@ -33,9 +35,9 @@ def decrypt(c_text) -> str:
     Args:
         c_text: str - cipher text to decrypt
     Returns:
-        str: decrypted plain text 
+        str: decrypted plain text
     """
-    plain_text = ''
+    plain_text = ""
 
     for c in c_text:
         index = ALPHABET.find(c)
@@ -51,7 +53,7 @@ def main() -> None:
     """
     encrypted_msg = encrypt(MESSAGE)
     decrypted_msg = decrypt(encrypted_msg)
-    
+
     print(encrypted_msg)
     print(decrypted_msg)
 
