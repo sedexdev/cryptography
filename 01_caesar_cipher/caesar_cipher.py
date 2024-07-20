@@ -1,7 +1,6 @@
 """Caesar Cipher implementation"""
 
-"""Import language detection library"""
-from py3langid.langid import LanguageIdentifier, MODEL_FILE 
+from py3langid.langid import MODEL_FILE, LanguageIdentifier
 
 # constants
 ALPHABET = " abcdefghijklmnopqrstuvwxyz"
