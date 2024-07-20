@@ -1,39 +1,43 @@
 """Caesar Cipher implementation"""
 
+"""Import language detection library"""
+from py3langid.langid import LanguageIdentifier, MODEL_FILE 
+
 # constants
-ALPHABET = " ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-KEY = 3
+ALPHABET = " abcdefghijklmnopqrstuvwxyz"
 MESSAGE = "This is a test message"
 
 
-def encrypt(p_text) -> str:
+def encrypt(p_text, key) -> str:
     """
     Encryption algorithm that shifts the plain text
-    characters right <KEY> times.
+    characters right <key> times.
 
     Args:
         p_text: str - plain text to encrypt
+        key:    int - symmetric key
     Returns:
         str: encrypted cipher text
     """
     cipher_text = ""
-    p_text = p_text.upper()
+    p_text = p_text.lower()
 
     for c in p_text:
         index = ALPHABET.find(c)
-        index = (index + KEY) % len(ALPHABET)
+        index = (index + key) % len(ALPHABET)
         cipher_text += ALPHABET[index]
 
     return cipher_text
 
 
-def decrypt(c_text) -> str:
+def decrypt(c_text, key) -> str:
     """
     Decryption algorithm that shifts the cipher text
-    characters left <KEY> times.
+    characters left <key> times.
 
     Args:
         c_text: str - cipher text to decrypt
+        key:    int - symmetric key
     Returns:
         str: decrypted plain text
     """
@@ -41,21 +45,42 @@ def decrypt(c_text) -> str:
 
     for c in c_text:
         index = ALPHABET.find(c)
-        index = (index - KEY) % len(ALPHABET)
+        index = (index - key) % len(ALPHABET)
         plain_text += ALPHABET[index]
 
     return plain_text
+
+
+def brute_force(c_text) -> int:
+    """
+    Brute force cracking algorithm to find encryption key
+
+    Args:
+        c_text: str - cipher text to crack
+    Returns:
+        int: encryption key
+    """
+    for i in range(len(ALPHABET)):
+        plain_text = decrypt(c_text, i)
+        identifier = LanguageIdentifier.from_pickled_model(MODEL_FILE, norm_probs=True)
+        lang, prob = identifier.classify(plain_text)
+        if lang == 'en' and prob >= 0.95:
+            return i
+    return -1
 
 
 def main() -> None:
     """
     Main function
     """
-    encrypted_msg = encrypt(MESSAGE)
-    decrypted_msg = decrypt(encrypted_msg)
+
+    encrypted_msg = encrypt(MESSAGE, 3)
+    decrypted_msg = decrypt(encrypted_msg, 3)
 
     print(encrypted_msg)
     print(decrypted_msg)
+
+    print(brute_force(encrypted_msg))
 
 
 if __name__ == "__main__":
