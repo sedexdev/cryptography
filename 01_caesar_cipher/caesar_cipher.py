@@ -63,7 +63,7 @@ def brute_force(c_text) -> int:
         plain_text = decrypt(c_text, i)
         identifier = LanguageIdentifier.from_pickled_model(MODEL_FILE, norm_probs=True)
         lang, prob = identifier.classify(plain_text)
-        if lang == 'en' and prob >= 0.95:
+        if lang == "en" and prob >= 0.95:
             return i
     return -1
 
