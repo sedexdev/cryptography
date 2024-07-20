@@ -1,6 +1,6 @@
 """Caesar Cipher test cases"""
 
-from caesar_cipher import brute_force, decrypt, encrypt
+from cipher import brute_force, decrypt, encrypt
 
 
 class TestCaesarCipher:
