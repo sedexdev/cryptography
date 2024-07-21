@@ -11,6 +11,6 @@ jobs:
         with:
           fetch-depth: 0
       - name: Install Python
-        uses: ./.github/actions/install-py.yml
+        uses: ./.github/actions/install-py/action.yml
       - name: Run tests
         run: pytest
