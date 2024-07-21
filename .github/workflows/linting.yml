@@ -1,5 +1,5 @@
 ---
-name: Test project
+name: Linting
 on: push
 permissions: read-all
 jobs:
