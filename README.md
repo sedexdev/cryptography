@@ -1,6 +1,7 @@
 # Cryptography in Python
 
 ![Tests](https://github.com/sedexdev/cryptography/actions/workflows/tests.yml/badge.svg)
+![Linting](https://github.com/sedexdev/cryptography/actions/workflows/linting.yml/badge.svg)
 
 ## Topics
 
