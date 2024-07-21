@@ -3,20 +3,20 @@ name: Test project
 on: push
 permissions: read-all
 jobs:
-  # lint:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout code
-  #       uses: actions/checkout@v4
-  #       with:
-  #         fetch-depth: 0
-  #     - name: Lint
-  #       uses: super-linter/super-linter@v6.7.0
-  #       env:
-  #         # To report GitHub Actions status checks
-  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Lint
+        uses: super-linter/super-linter@v6.7.0
+        env:
+          # To report GitHub Actions status checks
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   test:
-    # needs: lint
+    needs: lint
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -31,8 +31,3 @@ jobs:
         run: pip install -r requirements.txt
       - name: Run tests
         run: pytest
-      - name: Lint codebase
-        uses: super-linter/super-linter@v6.7.0
-        env:
-          # To report GitHub Actions status checks
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
