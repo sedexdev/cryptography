@@ -11,7 +11,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Install Python
-        uses: ./.github/actions/install-py/action.yml
+        uses: ./.github/actions/install-py/
       - name: Lint
         uses: super-linter/super-linter@v6.7.0
         env:
