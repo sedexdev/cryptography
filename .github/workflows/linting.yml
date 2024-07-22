@@ -12,8 +12,6 @@ jobs:
           fetch-depth: 0
       - name: Install Python
         uses: ./.github/actions/install-py/
-      - name: Set PYTHONPATH
-        run: export PYTHONPATH=${PYTHONPATH}:${pwd}
       - name: Lint
         uses: super-linter/super-linter@v6.7.0
         env:
