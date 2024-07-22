@@ -1,6 +1,6 @@
 """Caesar Cipher test cases"""
 
-from cipher import brute_force, decrypt, encrypt
+from cipher import MESSAGE_2, brute_force, decrypt, encrypt, freq_analysis
 
 
 class TestCaesarCipher:
@@ -37,3 +37,11 @@ class TestCaesarCipher:
         Test brute force cracking algorithm returns correct key
         """
         assert brute_force("wklvclvcdcwhvwcphvvdjh") == 3
+
+    def test_crack_frequency_analysis(self) -> None:
+        """
+        Test frequency analysis cracking algorithm returns correct key
+        """
+        cipher_text = encrypt(MESSAGE_2, 7)
+        key_crack = freq_analysis(cipher_text) 
+        assert 6 <= key_crack <= 8
