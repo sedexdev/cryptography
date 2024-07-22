@@ -43,5 +43,5 @@ class TestCaesarCipher:
         Test frequency analysis cracking algorithm returns correct key
         """
         cipher_text = encrypt(MESSAGE_2, 7)
-        key_crack = freq_analysis(cipher_text) 
+        key_crack = freq_analysis(cipher_text)
         assert 6 <= key_crack <= 8

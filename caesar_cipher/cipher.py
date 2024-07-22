@@ -7,12 +7,12 @@ import py3langid.langid as plid
 ALPHABET = " abcdefghijklmnopqrstuvwxyz"
 MESSAGE = "This is a test message"
 MESSAGE_2 = """
-Language is meant to be a playful, ever-shifting creation but we have been taught, and most 
-of us continue to believe, that language must obediently follow precisely prescribed rules 
-that govern clear sentence structures, specific word orders, correct spellings, and proper 
-pronunciations. If you make a mistake or step out of bounds there are countless, self-appointed 
-language experts who will promptly push you back into safe terrain and scold you for your errors. 
-And in case you need reminding, there are hundreds of dictionaries and grammar books to ensure 
+Language is meant to be a playful, ever-shifting creation but we have been taught, and most
+of us continue to believe, that language must obediently follow precisely prescribed rules
+that govern clear sentence structures, specific word orders, correct spellings, and proper
+pronunciations. If you make a mistake or step out of bounds there are countless, self-appointed
+language experts who will promptly push you back into safe terrain and scold you for your errors.
+And in case you need reminding, there are hundreds of dictionaries and grammar books to ensure
 that you remember the “right” way to use English.
 """
 
@@ -71,7 +71,10 @@ def brute_force(c_text) -> int:
     """
     for i in range(len(ALPHABET)):
         plain_text = decrypt(c_text, i)
-        identifier = plid.LanguageIdentifier.from_pickled_model(plid.MODEL_FILE, norm_probs=True)
+        identifier = plid.LanguageIdentifier.from_pickled_model(
+            plid.MODEL_FILE,
+            norm_probs=True
+        )
         lang, prob = identifier.classify(plain_text)
         if lang == "en" and prob >= 0.95:
             return i
@@ -107,7 +110,6 @@ def freq_analysis(c_text) -> int:
     # based on the numerical difference between the most common
     # letter in a given text and 'e'
     key = ALPHABET.find(sorted_by_value[1][0]) - (ALPHABET.find("e"))
-    
     return key
 
 
