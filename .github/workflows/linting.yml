@@ -17,6 +17,6 @@ jobs:
       - name: Lint
         uses: super-linter/super-linter@v6.7.0
         env:
-          PYTHON_PYLINT_CONFIG_FILE: ~/.pylintrc
+          PYTHON_PYLINT_CONFIG_FILE: /action/lib/.automation/.pylintrc
           # To report GitHub Actions status checks
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
