@@ -13,7 +13,7 @@ jobs:
       - name: Install Python
         uses: ./.github/actions/install-py/
       - name: Create .pylintrc
-        run: echo "[MASTER]" > ~/.pylintrc && echo "init-hook='import sys; sys.path.append("./")'" >> ~/.pylintrc
+        run: echo "[MASTER]" > /action/lib/.automation/.pylintrc && echo "init-hook='import sys; sys.path.append("./")'" >> /action/lib/.automation/.pylintrc
       - name: Lint
         uses: super-linter/super-linter@v6.7.0
         env:
