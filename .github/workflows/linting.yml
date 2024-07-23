@@ -12,11 +12,9 @@ jobs:
           fetch-depth: 0
       - name: Install Python
         uses: ./.github/actions/install-py/
-      - name: Create .pylintrc
-        run: echo "[MASTER]" > /action/lib/.automation/.pylintrc && echo "init-hook='import sys; sys.path.append("./")'" >> /action/lib/.automation/.pylintrc
       - name: Lint
         uses: super-linter/super-linter@v6.7.0
         env:
-          PYTHON_PYLINT_CONFIG_FILE: /action/lib/.automation/.pylintrc
+          PYTHON_PYLINT_CONFIG_FILE: .pylintrc
           # To report GitHub Actions status checks
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
