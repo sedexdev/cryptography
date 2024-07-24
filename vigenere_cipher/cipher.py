@@ -8,7 +8,7 @@ KEY = "secretkey"
 def encrypt(p_text, key) -> str:
     """
     Encryption algorithm to generate cipher text from <p_text>
-    
+
     Args:
         p_text: str - plain text to encrypt
         key: str - private key
@@ -36,7 +36,7 @@ def encrypt(p_text, key) -> str:
 def decrypt(c_text, key) -> str:
     """
     Decryption algorithm to generate plain text from <c_text>
-    
+
     Args:
         c_text: str - cipher text to decrypt
         key: str - private key

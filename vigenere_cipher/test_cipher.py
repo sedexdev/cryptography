@@ -1,6 +1,5 @@
 """Vigenere Cipher test cases"""
 
-
 from vigenere_cipher.cipher import MESSAGE, decrypt, encrypt
 
 
