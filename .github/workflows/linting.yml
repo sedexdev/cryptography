@@ -12,9 +12,9 @@ jobs:
           fetch-depth: 0
       - name: Install Python
         uses: ./.github/actions/install-py/
-      - name: Lint
-        uses: super-linter/super-linter@v6.7.0
-        env:
-          LINTER_RULES_PATH: config/lint
-          # To report GitHub Actions status checks
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Run pylint
+        run: pylint **/*.py
+      - name: Run actionlint
+        uses: raven-actions/actionlint@v2
+        with:
+          files: ".github/**/*.yml"

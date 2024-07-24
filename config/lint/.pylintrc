@@ -1,2 +1,0 @@
-[MAIN]
-init-hook='import os, sys; sys.append(os.path.dirname())'
