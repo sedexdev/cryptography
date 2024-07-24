@@ -13,7 +13,7 @@ jobs:
       - name: Install Python
         uses: ./.github/actions/install-py/
       - name: Run pylint
-        run: pylint **/*.py
+        run: pylint ./**/*.py
       - name: Run actionlint
         uses: raven-actions/actionlint@v2
         with:
