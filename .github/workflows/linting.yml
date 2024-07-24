@@ -12,10 +12,9 @@ jobs:
           fetch-depth: 0
       - name: Install Python
         uses: ./.github/actions/install-py/
-      - name: Update PYTHONPATH
-        run: export PYTHONPATH=${PYTHONPATH}:$(pwd)
       - name: Lint
         uses: super-linter/super-linter@v6.7.0
         env:
+          LINTER_RULES_PATH: config/lint
           # To report GitHub Actions status checks
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
